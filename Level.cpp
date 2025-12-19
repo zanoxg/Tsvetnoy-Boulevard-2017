@@ -63,7 +63,7 @@ void Level::drawWithPlayer(int playerX, int playerY) const
 				std::cout << map[y][x];
 			}
 		}
-		std::cout << "\n";
+		std::cout << std::endl;
 	}
 }
 
