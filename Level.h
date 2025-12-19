@@ -7,6 +7,8 @@ public:
 	bool loadFromFile(const std::string& filename);
 	void draw() const;
 
+	void drawWithPlayer(int playerX, int playerY) const;
+
 	char getTile(int x, int y) const;
 	void setTile(int x, int y, char tile);
 

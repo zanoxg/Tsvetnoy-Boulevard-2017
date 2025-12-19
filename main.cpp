@@ -4,12 +4,12 @@
 int main()
 {
 	Level level;
+	level.loadFromFile("levels/level1.txt");
 
-	if (!level.loadFromFile("levels/level1.txt"))
-	{
-		return 1;
-	}
+	int playerX = level.playerStartX;
+	int playerY = level.playerStartY;
 
-	level.draw();
+	level.drawWithPlayer(playerX, playerY);
+
 	return 0;
 }
