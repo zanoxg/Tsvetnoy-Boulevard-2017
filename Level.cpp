@@ -40,11 +40,31 @@ bool Level::loadFromFile(const std::string& filename)
 
 void Level::draw() const
 {
-	for (const auto& row : map)
+	for (int i = 0; i < map.size(); ++i)
 	{
+		std::string row = map[i];
 		std::cout << row << std::endl;
 	}
 	
+}
+
+void Level::drawWithPlayer(int playerX, int playerY) const
+{
+	for (int y = 0; y < height; ++y)
+	{
+		for (int x = 0; x < width; ++x)
+		{
+			if (x == playerX && y == playerY)
+			{
+				std::cout << '@';
+			}
+			else
+			{
+				std::cout << map[y][x];
+			}
+		}
+		std::cout << std::endl;
+	}
 }
 
 char Level::getTile(int x, int y) const
