@@ -26,7 +26,7 @@ bool Level::loadFromFile(const std::string& filename)
 	std::ifstream file(filename);
 	if (!file.is_open())
 	{
-		std::cout << "ошибка в чтении файла: " << filename << std::endl;
+		std::cout << u8"ошибка в чтении файла: " << filename << std::endl;
 		return false;
 	}
 

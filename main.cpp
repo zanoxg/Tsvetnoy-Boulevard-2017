@@ -80,7 +80,7 @@ int main()
 
 			if (currentLevel >= levels.size())
 			{
-				std::cout << "ты прошел игру" << std::endl;
+				std::cout << u8"ты прошел игру" << std::endl;
 				break;
 			}
 
