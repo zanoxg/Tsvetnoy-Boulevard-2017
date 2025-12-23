@@ -1,11 +1,26 @@
 #include <iostream>
 #include "Level.h"
 #include <conio.h>
+#include <Windows.h>
 
 int main()
 {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(65001);
+	
+
+	std::vector<std::string> levels =
+	{
+		"levels/level1.txt",
+		"levels/level2.txt",
+		"levels/level3.txt"
+	};
+
+	int currentLevel = 0;
+
 	Level level;
-	level.loadFromFile("levels/level1.txt");
+	level.showPrologue("levels/prologue.txt");
+	level.loadFromFile(levels[currentLevel]);
 
 	int playerX = level.playerStartX;
 	int playerY = level.playerStartY;
@@ -58,9 +73,24 @@ int main()
 
 		playerX = newX;
 		playerY = newY;
+
+		if (level.getTile(playerX, playerY) == '>')
+		{
+			++currentLevel;
+
+			if (currentLevel >= levels.size())
+			{
+				std::cout << "ты прошел игру" << std::endl;
+				break;
+			}
+
+			level.loadFromFile(levels[currentLevel]);
+			playerX = level.playerStartX;
+			playerY = level.playerStartY;
+		}
+
 	}
 
-	
-
+	setlocale(LC_ALL, "Russian");
 	return 0;
 }

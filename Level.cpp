@@ -1,6 +1,25 @@
 #include "Level.h"
 #include <fstream>
 #include <iostream>
+#include <conio.h>
+#include <synchapi.h>
+
+void Level::showPrologue(const std::string& filename)
+{
+	system("cls");
+	std::ifstream file(filename);
+	std::string line;
+
+	while (std::getline(file, line))
+	{
+		std::cout << line << std::endl;
+	}
+	file.close();
+
+	std::cout << std::endl << u8"нажмите любую кнопку для продолжения...";
+	_getch();
+
+}
 
 bool Level::loadFromFile(const std::string& filename)
 {

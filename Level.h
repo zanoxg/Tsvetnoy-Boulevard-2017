@@ -4,6 +4,8 @@
 
 class Level {
 public:
+	void showPrologue(const std::string& filename);
+	
 	bool loadFromFile(const std::string& filename);
 	void draw() const;
 
